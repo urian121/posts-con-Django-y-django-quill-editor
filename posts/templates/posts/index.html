@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Posts</h1>
+{% for post in posts %}
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <h5>{{ post.title }}</h5>
+        <div>{{ post.content.html|safe }}</div>
+    </div>
+</div>
+{% empty %}
+<p>No hay posts aún.</p>
+{% endfor %}
+{% endblock %}
