@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h1>Nuevo Post</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-success mt-3">Guardar</button>
-</form>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-dark text-white fw-bold">
+                    ✍️ Crear Nuevo Post
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Título</label>
+                            <input type="text" id="title" name="title" class="form-control"
+                                placeholder="Escribe el título" required>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Contenido</label>
+                            {{ form.content }} <!-- El editor Quill -->
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 mt-3">
+                            💾 Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
